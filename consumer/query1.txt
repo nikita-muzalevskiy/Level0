@@ -1,0 +1,10 @@
+Запрос для получения всех
+
+SELECT *
+FROM public."ORDERS" o
+left join public."DELIVERY" d
+on  d.id  = o.delivery_id
+left join public."PAYMENTS" pa
+on  pa.id = o.payments_id
+left join public."ITEMS" i
+on  i.track_number = o.track_number

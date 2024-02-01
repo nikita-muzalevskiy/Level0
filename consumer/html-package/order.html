@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ {{ .OrderUid}}</title>
+</head>
+<body>
+    {{if eq .OrderUid ""}}
+    <h1>Не получили заказ</h1>
+    {{else}}
+    <table table-layout="fixed"
+           width="50%"
+           border-collapse="collapse"
+           border="3px solid purple"
+           cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="11" style="background-color: #BC3D96; color: white">ORDER</th>
+        </tr>
+        <tr>
+            <td colspan="4">OrderUid</td>
+            <td colspan="7">{{.OrderUid}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">TrackNumber</td>
+            <td colspan="7">{{.TrackNumber}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Entry</td>
+            <td colspan="7">{{.Entry}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Locale</td>
+            <td colspan="7">{{.Locale}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">InternalSignature</td>
+            <td colspan="7">{{.InternalSignature}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">CustomerId</td>
+            <td colspan="7">{{.CustomerId}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">DeliveryService</td>
+            <td colspan="7">{{.DeliveryService}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Shardkey</td>
+            <td colspan="7">{{.Shardkey}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">SmId</td>
+            <td colspan="7">{{.SmId}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">DateCreated</td>
+            <td colspan="7">{{.DateCreated}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">OofShard</td>
+            <td colspan="7">{{.OofShard}}</td>
+        </tr>
+        <tr>
+            <th colspan="11" style="background-color: #BC3D96; color: white">DELIVERY</th>
+        </tr>
+        <tr>
+            <td colspan="4">Name</td>
+            <td colspan="7">{{.Delivery.Name}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Phone</td>
+            <td colspan="7">{{.Delivery.Phone}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Zip</td>
+            <td colspan="7">{{.Delivery.Zip}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">City</td>
+            <td colspan="7">{{.Delivery.City}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Address</td>
+            <td colspan="7">{{.Delivery.Address}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Region</td>
+            <td colspan="7">{{.Delivery.Region}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Email</td>
+            <td colspan="7">{{.Delivery.Email}}</td>
+        </tr>
+        <tr>
+            <th colspan="11" style="background-color: #BC3D96; color: white">PAYMENT</th>
+        </tr>
+        <tr>
+            <td colspan="4">Transaction</td>
+            <td colspan="7">{{.Payment.Transaction}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">RequestId</td>
+            <td colspan="7">{{.Payment.RequestId}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Currency</td>
+            <td colspan="7">{{.Payment.Currency}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Provider</td>
+            <td colspan="7">{{.Payment.Provider}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Amount</td>
+            <td colspan="7">{{.Payment.Amount}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">PaymentDt</td>
+            <td colspan="7">{{.Payment.PaymentDt}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Bank</td>
+            <td colspan="7">{{.Payment.Bank}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">DeliveryCost</td>
+            <td colspan="7">{{.Payment.DeliveryCost}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">GoodsTotal</td>
+            <td colspan="7">{{.Payment.GoodsTotal}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">CustomFee</td>
+            <td colspan="7">{{.Payment.CustomFee}}</td>
+        </tr>
+        <tr>
+            <th colspan="11" style="background-color: #BC3D96; color: white">ITEMS</th>
+        </tr>
+        <tr>
+            <td>ChrtId</td>
+            <td>TrackNumber</td>
+            <td>Price</td>
+            <td>Rid</td>
+            <td>Name</td>
+            <td>Sale</td>
+            <td>Size</td>
+            <td>TotalPrice</td>
+            <td>NmId</td>
+            <td>Brand</td>
+            <td>Status</td>
+        </tr>
+        {{range .Items}}
+        <tr>
+            <td>{{.ChrtId}}</td>
+            <td>{{.TrackNumber}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Rid}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Sale}}</td>
+            <td>{{.Size}}</td>
+            <td>{{.TotalPrice}}</td>
+            <td>{{.NmId}}</td>
+            <td>{{.Brand}}</td>
+            <td>{{.Status}}</td>
+        </tr>
+        {{end}}
+    </table>
+    {{end}}
+</body>
+</html>
